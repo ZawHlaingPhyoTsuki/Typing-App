@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { useTheme } from "next-themes";
 
 // New lessons
 const lessonText = [
@@ -19,7 +18,6 @@ const lessonText = [
 ];
 
 export default function TypingTest() {
-  const { theme } = useTheme();
   const [state, setState] = useState({
     userInput: "",
     startTime: null as number | null,
@@ -117,7 +115,7 @@ export default function TypingTest() {
           <div className="mb-6 p-4 border rounded-lg bg-muted/50">
             <p className="whitespace-pre-wrap text-xl tracking-wide font-mono">
               {currentLesson.split("").map((char, index) => {
-                let color =
+                const color =
                   index < state.userInput.length
                     ? state.userInput[index] === char
                       ? "text-green-600 dark:text-green-400"
