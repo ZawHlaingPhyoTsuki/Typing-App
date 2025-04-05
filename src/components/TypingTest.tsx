@@ -184,7 +184,7 @@ export default function TypingTest() {
           <Button
             onClick={nextLesson}
             disabled={state.currentLessonIndex >= lessonText.length - 1}
-            className="flex-1"
+            className="flex-1 h-11"
           >
             {state.currentLessonIndex < lessonText.length - 1
               ? "Next Lesson"

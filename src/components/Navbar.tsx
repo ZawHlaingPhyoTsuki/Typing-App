@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import AuthBtn from "./AuthBtn";
 
 interface MenuItem {
   title: string;
@@ -30,7 +31,7 @@ interface Navbar1Props {
   };
 }
 
-export default function Navbar({
+export default async function Navbar({
   logo = {
     url: "https://www.shadcnblocks.com",
     src: "https://shadcnblocks.com/images/block/logos/shadcnblockscom-icon.svg",
@@ -42,8 +43,11 @@ export default function Navbar({
     signup: { title: "Sign up", url: "/sign-up" },
   },
 }: Navbar1Props) {
+
+  // const session = await 
+
   return (
-    <section className="py-4 flex items-center justify-center px-5 md:px-0 bg-[#FFFFFF] dark:bg-[#000000] border-b">
+    <section className="py-4 flex items-center justify-center px-5 md:px-0 bg-[#FFFFFF] dark:bg-[#000000] border-b z-10">
       <div className="container">
         {/* Desktop Menu */}
         <nav className="justify-between flex">
@@ -62,14 +66,7 @@ export default function Navbar({
               </span>
             </Link>
           </div>
-          <div className="flex gap-2">
-            <Button asChild variant="outline" size="sm">
-              <Link href={auth.login.url}>{auth.login.title}</Link>
-            </Button>
-            <Button asChild size="sm">
-              <Link href={auth.signup.url}>{auth.signup.title}</Link>
-            </Button>
-          </div>
+          <AuthBtn />
         </nav>
       </div>
     </section>
