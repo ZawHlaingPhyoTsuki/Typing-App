@@ -3,9 +3,10 @@ import { signUpSchema } from "@/lib/auth-schema";
 import { NextResponse } from "next/server";
 import { hashPassword } from "@/lib/auth-utils";
 
+export const runtime = 'nodejs'; // Add this line
 export async function POST(request: Request) {
   try {
-    const body= await request.json();
+    const body = await request.json();
     const validatedData = signUpSchema.parse(body);
 
     // Check if user already exists
