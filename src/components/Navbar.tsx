@@ -1,7 +1,6 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import AuthBtn from "./AuthBtn";
+import AuthBtn from "./(auth)/AuthBtn";
 
 interface MenuItem {
   title: string;
@@ -19,16 +18,6 @@ interface Navbar1Props {
     title: string;
   };
   menu?: MenuItem[];
-  auth?: {
-    login: {
-      title: string;
-      url: string;
-    };
-    signup: {
-      title: string;
-      url: string;
-    };
-  };
 }
 
 export default async function Navbar({
@@ -37,10 +26,6 @@ export default async function Navbar({
     src: "https://shadcnblocks.com/images/block/logos/shadcnblockscom-icon.svg",
     alt: "logo",
     title: "Typing App",
-  },
-  auth = {
-    login: { title: "Login", url: "/sign-in" },
-    signup: { title: "Sign up", url: "/sign-up" },
   },
 }: Navbar1Props) {
 
